@@ -1,0 +1,10 @@
+const fs = require('fs');
+
+try {
+  // Create a new directory named 'newFolder'
+  fs.mkdirSync('newFolder'); 
+  console.log('Directory created successfully!');
+} catch (err) {
+  // Handle errors, e.g., if the directory already exists
+  console.error(err);
+}
