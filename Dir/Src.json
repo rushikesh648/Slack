@@ -1,0 +1,13 @@
+// Using Promises (Recommended in modern Node.js)
+const fs = require('fs').promises;
+
+async function createDir() {
+  try {
+    await fs.mkdir('newFolderAsync');
+    console.log('Directory created successfully (async)!');
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+createDir();
