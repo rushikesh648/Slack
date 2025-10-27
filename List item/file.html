@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Example</title>
+</head>
+<body>
+
+    <h1>DOM Creation Example</h1>
+    
+    <ul id="myList">
+        <li>Existing Item 1</li>
+        <li>Existing Item 2</li>
+    </ul>
+
+    <button id="creatorButton">Create New List Item</button>
+
+    <script>
+        // See the JavaScript code section below
+        document.addEventListener('DOMContentLoaded', () => {
+            const list = document.getElementById('myList');
+            const creatorButton = document.getElementById('creatorButton');
+
+            creatorButton.addEventListener('click', createNewListItem);
+        });
+
+        let itemCounter = 3;
+
+        function createNewListItem() {
+            // --- DOM Creation Steps ---
+
+            // 1. Create the main list item (<li>) element
+            const listItem = document.createElement('li');
+            listItem.textContent = `Dynamically Created Item ${itemCounter}`;
+
+            // 2. Create a sub-element (a button)
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = ' (X) Delete Me';
+            deleteButton.style.marginLeft = '10px';
+
+            // 3. Add an event listener to the newly created button
+            deleteButton.addEventListener('click', function() {
+                // When clicked, remove the button's parent (the <li>)
+                listItem.remove();
+            });
+
+            // 4. Append the button to the list item
+            listItem.appendChild(deleteButton);
+
+            // 5. Find the existing list container
+            const list = document.getElementById('myList');
+
+            // 6. Append the complete list item to the existing list
+            list.appendChild(listItem);
+            
+            itemCounter++;
+        }
+    </script>
+
+</body>
+</html>
