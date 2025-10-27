@@ -14,7 +14,7 @@
 💡 Key Components Explained
 ### Backend Service & Health Check: This is the core logic. The Backend Service connects the Load Balancer to your VM group. The Health Check continuously pings your VMs to ensure they are serving traffic correctly; if a VM fails the check, the load balancer automatically stops sending it requests.
 
-### URL Map: Because this is a Layer 7 (HTTP) Load Balancer, the URL Map allows you to inspect the incoming request path or hostname and route traffic to different backend services (e.g., /api goes to a different VM group than /images).
+### URL Map: Because this is a Layer 7 (HTTP) Load Balancer, the URL Map allows you to inspect the incoming request path or hostname and route traffic to different backend services (e.g., ```/api``` goes to a different VM group than ```/images```).
 
 ### Forwarding Rule: This is the final step that ties everything together. It takes the reserved Global IP Address and port 80 and directs all incoming traffic to the Target HTTP Proxy, which then uses the URL Map to distribute the load.
 
